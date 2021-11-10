@@ -1,6 +1,6 @@
 ## Instalacion
 
-0. habra una session en termux y en el directorio de home escriba los siguientes comandos
+0. habran una session en termux y en el directorio de home escriba los siguientes comandos
 
 1. apt update
 
@@ -18,7 +18,7 @@
 
 8. ./beef_venom24
 
-9. en donde les pida que escriba y/n ustedes escriban y, pues significa yes y es para continuar con la instalacion
+9. en donde les pida que escriban y/n ustedes escriban y, pues significa yes y es para continuar con la instalacion
 
 ## Enlaces
 
