@@ -1,0 +1,157 @@
+#!/bin/bash
+#
+# Copyright (c) 2006-2021 Wade Alcorn - wade@bindshell.net
+# Browser Exploitation Framework (BeEF) - http://beefproject.com
+# See the file 'doc/COPYING' for copying permission
+#
+
+set -euo pipefail
+IFS=$'\n\t'
+
+
+info()  { echo -e "\\033[1;36m[INFO]\\033[0m  $*"; }
+warn()  { echo -e "\\033[1;33m[WARNING]\\033[0m  $*"; }
+fatal() { echo -e "\\033[1;31m[FATAL]\\033[0m  $*"; exit 1 ; }
+
+RUBYSUFFIX=''
+
+command_exists () {
+
+  command -v "${1}" >/dev/null 2>&1
+}
+
+
+get_permission () {
+
+  warn 'This script will install BeEF and its required dependencies (including operating system packages).'
+
+  read -rp  "Are you sure you wish to continue (Y/n)? " 
+  if [ "$(echo "${REPLY}" | tr "[:upper:]" "[:lower:]")" = "n" ] ; then
+    fatal 'Installation aborted'
+  fi
+  
+
+}
+
+
+check_ruby_version () {
+
+  info 'Detecting Ruby environment...'
+
+  MIN_RUBY_VER='2.5'
+  if command_exists rvm
+  then
+    RUBY_VERSION=$(rvm current | cut -d'-' -f 2)
+    info "Ruby version ${RUBY_VERSION} is installed"
+    if RUBY_VERSION -le MIN_RUBY_VER
+    then 
+      fatal "Ruby version ${RUBY_VERSION} is not supported. Please install Ruby ${MIN_RUBY_VER} (or newer) and restart the installer."
+    fi
+  elif command_exists rbenv version
+  then
+    RUBY_VERSION=$(rbenv version | cut -d' ' -f 2)
+    info "Ruby version ${RUBY_VERSION} is installed"
+    if RUBY_VERSION -le MIN_RUBY_VER
+    then 
+      fatal "Ruby version ${RUBY_VERSION} is not supported. Please install Ruby ${MIN_RUBY_VER} (or newer) and restart the installer."
+    fi
+  elif command_exists ruby${RUBYSUFFIX}
+  then
+    RUBY_VERSION=$(ruby${RUBYSUFFIX} -e "puts RUBY_VERSION")
+    info "Ruby version ${RUBY_VERSION} is installed"
+    if [ "$(ruby${RUBYSUFFIX} -e "puts RUBY_VERSION.to_f >= ${MIN_RUBY_VER}")" = 'false' ]
+    then
+      fatal "Ruby version ${RUBY_VERSION} is not supported. Please install Ruby ${MIN_RUBY_VER} (or newer) and restart the installer."
+    fi
+  else
+    fatal "Ruby is not installed. Please install Ruby ${MIN_RUBY_VER} (or newer) and restart the installer."
+  fi
+}
+
+check_rubygems () {
+  if command_exists gem${RUBYSUFFIX}
+  then
+    info 'Updating rubygems...'
+     gem${RUBYSUFFIX} update --system
+  fi
+}
+
+check_bundler () {
+
+  info 'Detecting bundler gem...'
+  
+  if command_exists bundler${RUBYSUFFIX}
+  then
+    info "bundler${RUBYSUFFIX} gem is installed"
+  else
+    info 'Installing bundler gem...'
+    gem${RUBYSUFFIX} install bundler
+  fi
+}
+
+
+install_beef () { 
+
+  echo "Installing required Ruby gems..."
+
+  if [ -w Gemfile.lock ]
+  then
+    $PREFIX/bin/rm Gemfile.lock
+  fi
+
+  if command_exists bundler${RUBYSUFFIX}
+  then
+    bundle${RUBYSUFFIX} install
+  else
+    bundle install
+  fi
+}
+
+finish () {
+  echo
+  echo "#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#"
+  echo
+  info "Install completed successfully!"
+  info "Run './beef' to launch BeEF"
+  echo
+  echo "Next steps:"
+  echo
+  echo "* Change the default password in config.yaml"
+  echo "* Run ./update-geoipdb to install the Maxmind GeoIP database"
+  echo "* Review the wiki for important configuration information:"
+  echo "  https://github.com/beefproject/beef/wiki/Configuration"
+  echo
+  echo "#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#"
+  echo
+}
+
+
+main () {
+
+  clear
+
+  if [ -f core/main/console/beef.ascii ] ; then
+    cat core/main/console/beef.ascii
+    echo
+  fi
+
+  echo "#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#"
+  echo "                   -- [ BeEF Installer ] --                      "
+  echo "#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#"
+  echo
+
+  if [ ! -z ${GITACTIONS:-} ];
+  then
+    info "Skipping: Running on Github Actions"
+  else
+    get_permission
+  fi
+  
+  check_ruby_version
+  check_rubygems
+  check_bundler
+  install_beef
+  finish
+}
+
+main "$@"
