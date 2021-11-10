@@ -1,4 +1,4 @@
-##Instalacion
+#Instalacion
 
 0. habra una session en termux y en el directorio de home escriba los siguientes comandos
 
@@ -22,8 +22,8 @@
 
 ##Enlaces
 
-[Canal de Telegram] (https://t.me/Vnom24)
+[Canal de Telegram](https://t.me/Vnom24)
 
-[Telegram personal] (https://t.me/VENOM24)
+[Telegram personal](https://t.me/VENOM24)
 
 
