@@ -1,4 +1,4 @@
-#Instalacion
+## Instalacion
 
 0. habra una session en termux y en el directorio de home escriba los siguientes comandos
 
@@ -20,7 +20,7 @@
 
 9. en donde les pida que escriba y/n ustedes escriban y, pues significa yes y es para continuar con la instalacion
 
-##Enlaces
+## Enlaces
 
 [Canal de Telegram](https://t.me/Vnom24)
 
