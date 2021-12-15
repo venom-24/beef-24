@@ -11,33 +11,26 @@
 <a href="https://www.youtube.com/c/Venom24Termux"><img title="youtube" src="https://img.shields.io/badge/YouTube-VeNOM24-red?style=for-the-badge&logo=Youtube"></a>
 </p>
 
-## Instalacion
+# Disponible En :
+* TERMUX
 
-0. habran una session en termux y en el directorio de home escriba los siguientes comandos
+### Probado En :
+* TERMUX
+### Requerimientos :
+* Conexion a internet
+* 0.90 GB Almacenamiento 
 
-1. apt update
+## COMANDOS DE INSTALACION DE BEEF
 
-2. apt upgrade -y
+* `apt update`
+* `apt upgrade -y`
+* `git clone https://github.com/venom-24/beef-24.git`
+* `ls`
+* `cd beef-24;ls`
+* `chmod +x *;ls`
+* `ls`
+* `./beef_venom24`
 
-3. git clone https://github.com/venom-24/beef-24.git
 
-4. ls
 
-5. cd beef-24;ls
-
-6. chmod +x Gemfile  beef_venom24  config.yaml  install
-
-7. ls
-
-8. ./beef_venom24
-
-9. en donde les pida que escriban y/n ustedes escriban y, pues significa yes y es para continuar con la instalacion
-
-## Enlaces
-
-[Canal de Telegram](https://t.me/Vnom24)
-
-[Telegram personal](https://t.me/VENOM24)
-
-[Esta es una imagen](https://i.ibb.co/vXn61hD/Sin-t-tulo30.png)
 
