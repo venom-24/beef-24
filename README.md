@@ -38,5 +38,14 @@
 <img width="48%" src="https://i.ibb.co/DKRJFz3/Sin-t-tulo61.png"/>
 </p>
 
+## Conectate con nosotros
+[![Messenger](https://img.shields.io/badge/Chat-Messenger-blue?style=for-the-badge&logo=messenger)](https://m.me/venom.24.tr)
+<a href="https://www.youtube.com/c/Venom24Termux"><img title="youtube" src="https://img.shields.io/badge/YouTube-VeNOM24-red?style=for-the-badge&logo=Youtube">
+</a>
+[![Telegram](https://img.shields.io/badge/Telegram-Channel-blue?style=for-the-badge&logo=telegram)](https://t.me/Vnom24)
+<a href=https://www.facebook.com/Venom24termuxavanzado><img title="Facebook" src="https://img.shields.io/badge/FACEBOOK-DAME LIKE-blue?style=for-the-badge&logo=Facebook"></a>
+</a>
+[![Github](https://img.shields.io/badge/github-VENOM24-brightgreen?style=for-the-badge&logo=github)](https://github.com/venom-24)
+
 
 
