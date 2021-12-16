@@ -18,7 +18,7 @@
 * TERMUX
 ### Requerimientos :
 * Conexion a internet
-* 1 GB Almacenamiento 
+* 1 GB De Almacenamiento 
 
 ## COMANDOS DE INSTALACION DE BEEF
 
@@ -31,6 +31,12 @@
 * `ls`
 * `./beef_venom24`
 
+## screenshot
+<br>
+<p align="center">
+<img width="50%" src="https://i.ibb.co/rZVvx08/Sin-t-tulo62.png"/>
+<img width="48%" src="https://i.ibb.co/DKRJFz3/Sin-t-tulo61.png"/>
+</p>
 
 
 
