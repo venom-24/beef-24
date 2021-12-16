@@ -18,7 +18,7 @@
 * TERMUX
 ### Requerimientos :
 * Conexion a internet
-* 0.90 GB Almacenamiento 
+* 1 GB Almacenamiento 
 
 ## COMANDOS DE INSTALACION DE BEEF
 
