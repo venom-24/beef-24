@@ -11,6 +11,13 @@
 <a href="https://www.youtube.com/c/Venom24Termux"><img title="youtube" src="https://img.shields.io/badge/YouTube-VeNOM24-red?style=for-the-badge&logo=Youtube"></a>
 </p>
 
+<p align="center">
+<a href="https://github.com/venom-24"><img title="Followers" src="https://img.shields.io/github/followers/venom-24?color=blue&style=flat-square"></a> 
+<a href="https://github.com/venom-24"><img title="Stars" src="https://img.shields.io/github/stars/venom-24/beef-24?color=blue&style=flat-square"></a>
+<a href="https://github.com/venom-24"><img title="Forks" src="https://img.shields.io/github/forks/venom-24/beef-24?color=blue&style=flat-square">
+</a> <a href="https://github.com/venom-24"><img title="Watching" src="https://img.shields.io/github/watchers/venom-24/beef-24?label=Watchers&color=blue&style=flat-square"></a>
+</p>
+
 # Disponible En :
 * TERMUX
 
